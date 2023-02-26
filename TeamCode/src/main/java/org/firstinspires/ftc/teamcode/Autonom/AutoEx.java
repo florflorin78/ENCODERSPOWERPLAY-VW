@@ -96,17 +96,14 @@ public class AutoEx extends LinearOpMode
 
 
         TrajectorySequence trajMid = drive.trajectorySequenceBuilder(startPose)
-                .addTemporalMarker(0.1, () -> {
-                    robotSmash.CloseClaw();
+                .addTemporalMarker(1, () -> {
+                    robotSmash.setLiftTarget(200);
                 })
-//                .addTemporalMarker(0.1, () -> {
-//                    robotSmash.LIFT_URCAT(1, 250);
-//                })
-                .lineToLinearHeading(leftFrontPose)
-                .addTemporalMarker(0.1, () -> {
-//                    robotSmash.LIFT_URCAT(1, 1500);
+                .forward(50)
+//                .lineToLinearHeading(leftFrontPose)
+                .addTemporalMarker(3, () -> {
+                    robotSmash.setLiftTarget(1500);
                 })
-                .waitSeconds(3)
                 .strafeLeft(12)
                 .forward(4)
                 .waitSeconds(1)
@@ -117,7 +114,7 @@ public class AutoEx extends LinearOpMode
 //                .waitSeconds(1)
                 .strafeRight(15)
                 .addTemporalMarker(0.1, () -> {
-//                    robotSmash.LIFT_COBORAT(1, 2500);
+                    robotSmash.setLiftTarget(500);
                 })
                 .waitSeconds(3)
                 .turn(Math.toRadians(-90))
@@ -148,6 +145,7 @@ public class AutoEx extends LinearOpMode
 
         while (opModeIsActive() && !isStopRequested()) {
             drive.update();
+            robotSmash.LiftPID();
 
             telemetry.update();
         }

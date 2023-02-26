@@ -188,7 +188,7 @@ public class RobotSmash {
 
     public void LiftPID(){
 
-//        pidController.setPID(kp, ki, kd);
+        pidController.setPID(kp, ki, kd);
         int armPos = LiftStanga.getCurrentPosition();
         pid = pidController.calculate(armPos, liftTarget);
 

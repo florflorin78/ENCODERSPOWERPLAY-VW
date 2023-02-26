@@ -96,10 +96,10 @@ public class SampleMecanumDrive extends MecanumDrive {
             module.setBulkCachingMode(LynxModule.BulkCachingMode.AUTO);
         }
 
-//        imu = hardwareMap.get(BNO055IMU.class, "imu");
-//        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
-//        parameters.angleUnit = BNO055IMU.AngleUnit.RADIANS;
-//        imu.initialize(parameters);
+        imu = hardwareMap.get(BNO055IMU.class, "imu");
+        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+        parameters.angleUnit = BNO055IMU.AngleUnit.RADIANS;
+        imu.initialize(parameters);
 
         leftFront = hardwareMap.get(DcMotorEx.class, "LeftFront_OdometryLeft");
         leftRear = hardwareMap.get(DcMotorEx.class, "LeftBack");
@@ -144,7 +144,7 @@ public class SampleMecanumDrive extends MecanumDrive {
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         rightFront.setDirection(DcMotorSimple.Direction.FORWARD);
 
-        setLocalizer(new StandardTrackingWheelLocalizer(hardwareMap));
+//        setLocalizer(new StandardTrackingWheelLocalizer(hardwareMap));
 
         trajectorySequenceRunner = new TrajectorySequenceRunner(follower, HEADING_PID);
     }
@@ -306,7 +306,7 @@ public class SampleMecanumDrive extends MecanumDrive {
 
     @Override
     public double getRawExternalHeading() {
-        return 0;
+        return imu.getAngularOrientation().firstAngle;
     }
 
     @Override

@@ -66,10 +66,10 @@ public class OpModeRight extends LinearOpMode  {
     @Override
     public void runOpMode() throws InterruptedException {
 
-        LeftFront =  hardwareMap.get(DcMotor.class, "LeftFront");
+        LeftFront =  hardwareMap.get(DcMotor.class, "LeftFront_OdometryLeft");
         LeftBack  =  hardwareMap.get(DcMotor.class, "LeftBack");
-        RightFront = hardwareMap.get(DcMotor.class, "RightFront");
-        RightBack =  hardwareMap.get(DcMotor.class, "RightBack");
+        RightFront = hardwareMap.get(DcMotor.class, "RightFront_OdometryRight");
+        RightBack =  hardwareMap.get(DcMotor.class, "RightBack_OdometryFront");
         LiftStanga = hardwareMap.get(DcMotor.class, "LiftStanga");
         LiftDreapta = hardwareMap.get(DcMotor.class, "LiftDreapta");
         ServoStanga = hardwareMap.get(Servo.class, "ServoStanga");
