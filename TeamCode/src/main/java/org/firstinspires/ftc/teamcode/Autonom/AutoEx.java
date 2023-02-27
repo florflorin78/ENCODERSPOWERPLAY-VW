@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.Autonom;
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
+import com.acmerobotics.roadrunner.geometry.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
@@ -95,53 +96,63 @@ public class AutoEx extends LinearOpMode
         //endregion
 
 
-        TrajectorySequence trajMid = drive.trajectorySequenceBuilder(startPose)
-                .addTemporalMarker(1, () -> {
-                    robotSmash.setLiftTarget(200);
-                })
-                .forward(50)
-//                .lineToLinearHeading(leftFrontPose)
-                .addTemporalMarker(3, () -> {
-                    robotSmash.setLiftTarget(1500);
-                })
-                .strafeLeft(12)
-                .forward(4)
-                .waitSeconds(1)
-                .addTemporalMarker(0.5, () -> {
-                    robotSmash.OpenClaw();
-                }) //preload start
-                .back(2)
+//        TrajectorySequence trajMid = drive.trajectorySequenceBuilder(startPose)
+//                .addTemporalMarker(1, () -> {
+//                    robotSmash.setLiftTarget(200);
+//                })
+//                .forward(50)
+////                .lineToLinearHeading(leftFrontPose)
+//                .addTemporalMarker(3, () -> {
+//                    robotSmash.setLiftTarget(1500);
+//                })
+//                .strafeLeft(12)
+//                .forward(4)
 //                .waitSeconds(1)
-                .strafeRight(15)
-                .addTemporalMarker(0.1, () -> {
-                    robotSmash.setLiftTarget(500);
-                })
-                .waitSeconds(3)
-                .turn(Math.toRadians(-90))
-                .forward(26)
-                .waitSeconds(1)
-                .addTemporalMarker(0.5, () -> {
-                    robotSmash.CloseClaw();
-                }) // high to first cone
+//                .addTemporalMarker(0.5, () -> {
+//                    robotSmash.OpenClaw();
+//                }) //preload start
+//                .back(2)
+////                .waitSeconds(1)
+//                .strafeRight(15)
+//                .addTemporalMarker(0.1, () -> {
+//                    robotSmash.setLiftTarget(500);
+//                })
+//                .waitSeconds(3)
+//                .turn(Math.toRadians(-90))
+//                .forward(26)
+//                .waitSeconds(1)
+//                .addTemporalMarker(0.5, () -> {
+//                    robotSmash.CloseClaw();
+//                }) // high to first cone
+//
+//                .back(45)
+//                .strafeLeft(12)
+////                .addDisplacementMarker(() -> {
+////                     robotSmash.HighLiftPos();
+////                })
+//                .UNSTABLE_addTemporalMarkerOffset(0.5, () -> {
+//                    robotSmash.OpenClaw();
+//                })
+//                .waitSeconds(1)
+////                .addDisplacementMarker(() -> {
+////                    robotSmash.setLiftTarget(-5);
+////                })
+//                .waitSeconds(1)
+//                .strafeRight(12)
+//                .forward(36)
+//                .build();
+//
+//        drive.followTrajectorySequenceAsync(trajMid);
 
-                .back(45)
-                .strafeLeft(12)
-//                .addDisplacementMarker(() -> {
-//                     robotSmash.HighLiftPos();
-//                })
-                .UNSTABLE_addTemporalMarkerOffset(0.5, () -> {
-                    robotSmash.OpenClaw();
-                })
-                .waitSeconds(1)
-//                .addDisplacementMarker(() -> {
-//                    robotSmash.setLiftTarget(-5);
-//                })
-                .waitSeconds(1)
-                .strafeRight(12)
-                .forward(36)
+        TrajectorySequence untitled1 = drive.trajectorySequenceBuilder(new Pose2d(71.71, 24.10, Math.toRadians(180.00)))
+                .splineTo(new Vector2d(51.69, 35.39), Math.toRadians(180.48))
+                .splineToLinearHeading(new Pose2d(16.95, 34.68, Math.toRadians(195.18)), Math.toRadians(195.18))
+                .splineTo(new Vector2d(8.65, 23.81), Math.toRadians(180.24))
                 .build();
+        drive.setPoseEstimate(untitled1.start());
 
-        drive.followTrajectorySequenceAsync(trajMid);
+
+        drive.followTrajectorySequenceAsync(untitled1);
 
         while (opModeIsActive() && !isStopRequested()) {
             drive.update();
