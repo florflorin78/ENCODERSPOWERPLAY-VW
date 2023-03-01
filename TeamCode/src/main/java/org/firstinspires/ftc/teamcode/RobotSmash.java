@@ -117,11 +117,9 @@ public class RobotSmash {
     }
 
     public void DriveMovement(Gamepad gamepad) {
-
         double Forward = -gamepad.left_stick_y;
         double Strafe = gamepad.left_stick_x;
         double Turn = gamepad.right_stick_x;
-
         if(!gamepad.left_bumper){
             Strafe /= 2;
             Forward /= 2;
@@ -129,11 +127,9 @@ public class RobotSmash {
         if(!gamepad.right_bumper){
             Turn /= 2;
         }
-
         double r = Math.hypot(Strafe, Forward);
-
         double robotAngle = Math.atan2(Forward, Strafe) - Math.PI / 4;
-
+        
         final double v1 = (r * Math.cos(robotAngle)) + Turn;
         final double v2 = (r * Math.sin(robotAngle)) - Turn;
         final double v3 = (r * Math.sin(robotAngle)) + Turn;
