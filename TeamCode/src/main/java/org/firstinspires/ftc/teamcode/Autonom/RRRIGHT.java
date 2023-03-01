@@ -20,7 +20,7 @@ import org.openftc.easyopencv.OpenCvCameraRotation;
 import java.util.ArrayList;
 
 @Autonomous(name="RoadRunnerDreapta")
-public class AutoEx extends LinearOpMode
+public class RRRIGHT extends LinearOpMode
 {
     int autoCase = 2;
 
