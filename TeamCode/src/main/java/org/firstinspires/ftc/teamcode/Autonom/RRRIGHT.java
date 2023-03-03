@@ -121,8 +121,7 @@ public class RRRIGHT extends LinearOpMode
                 .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.OpenClaw())
 
-                // first_cone
-
+                // first_and_second_cycle
                 .lineToConstantHeading(new Vector2d(24.00, -12.10))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(170))
                 .lineToLinearHeading(new Pose2d(36.97, -12.08, Math.toRadians(-0.80)))
@@ -162,8 +161,7 @@ public class RRRIGHT extends LinearOpMode
                 .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.OpenClaw())
 
-                //park
-
+                //park1
                 .lineToSplineHeading(new Pose2d(12, -19.81, Math.toRadians(90.00)))
 
                 .build();
@@ -222,8 +220,7 @@ public class RRRIGHT extends LinearOpMode
                 .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.OpenClaw())
 
-                //park
-
+                //park2
                 .lineToSplineHeading(new Pose2d(36, -19.2, Math.toRadians(90.00)))
 
                 .build();
@@ -282,8 +279,7 @@ public class RRRIGHT extends LinearOpMode
                 .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.OpenClaw())
 
-                //park
-
+                //park3
                 .lineToLinearHeading(new Pose2d(36.25, -13.08, Math.toRadians(120.00)))
                 .lineToLinearHeading(new Pose2d(56.5, -14.37, Math.toRadians(90.00)))
                 .setReversed(true)
