@@ -62,6 +62,7 @@ public class RRLEFT extends LinearOpMode
         RobotSmash robotSmash = new RobotSmash(hardwareMap);
 
         robotSmash.CloseClaw();
+        robotSmash.setLiftTarget(0);
         drive.setPoseEstimate(startPose);
 
         //region AprilTag
@@ -110,55 +111,55 @@ public class RRLEFT extends LinearOpMode
 
         TrajectorySequence parcare1 = drive.trajectorySequenceBuilder(startPose)
                 //preload
-                .addTemporalMarker(() -> robotSmash.setLiftTarget(40))
+                .addTemporalMarker(() -> robotSmash.setLiftTarget(60))
                 .lineToConstantHeading(new Vector2d(-36.39, -45.55))
                 .lineToConstantHeading(new Vector2d(-35.82, -11.5))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1520))
-                .lineToConstantHeading(new Vector2d(-25, -10.51))
-                .lineToConstantHeading(new Vector2d(-25, -6.5))
+                .lineToConstantHeading(new Vector2d(-22, -10.51))
+                .lineToConstantHeading(new Vector2d(-22, -6.5))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1300))
-                .waitSeconds(0.001)
+                .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.OpenClaw())
 
                 // first_cone
 
                 .lineToConstantHeading(new Vector2d(-24.00, -12.10))
-                .addTemporalMarker(() -> robotSmash.setLiftTarget(225))
+                .addTemporalMarker(() -> robotSmash.setLiftTarget(170))
                 .lineToLinearHeading(new Pose2d(-36.97, -12.08, Math.toRadians(180)))
-                .lineToLinearHeading(new Pose2d(-64.00, -12.00, Math.toRadians(180)))
-                .lineToConstantHeading(new Vector2d(-65, -12.10))
+                .lineToLinearHeading(new Pose2d(-65.00, -12.00, Math.toRadians(180)))
+                .lineToConstantHeading(new Vector2d(-67, -12.10))
                 .addTemporalMarker(() -> robotSmash.CloseClaw())
-                .waitSeconds(0.001)
+                .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(600))
 
 
                 .lineToConstantHeading(new Vector2d(-36.97, -12.08))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1450))
-                .lineToLinearHeading(new Pose2d(-25, -14.50, Math.toRadians(90.00)))
-                .lineToConstantHeading(new Vector2d(-25, -6))
+                .lineToLinearHeading(new Pose2d(-23.5, -14.50, Math.toRadians(90.00)))
+                .lineToConstantHeading(new Vector2d(-23.5, -6))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1300))
-                .waitSeconds(0.001)
+                .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.OpenClaw())
 
 
                 //second cone
 
                 .lineToConstantHeading(new Vector2d(-24.00, -12.10))
-                .addTemporalMarker(() -> robotSmash.setLiftTarget(165))
+                .addTemporalMarker(() -> robotSmash.setLiftTarget(115))
                 .lineToLinearHeading(new Pose2d(-36.97, -12.08, Math.toRadians(180)))
                 .lineToLinearHeading(new Pose2d(-65.00, -12.00, Math.toRadians(180)))
-                .lineToConstantHeading(new Vector2d(-64, -12.10))
+                .lineToConstantHeading(new Vector2d(-67, -12.10))
                 .addTemporalMarker(() -> robotSmash.CloseClaw())
-                .waitSeconds(0.001)
+                .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(600))
 
 
                 .lineToConstantHeading(new Vector2d(-36.97, -12.08))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1450))
-                .lineToLinearHeading(new Pose2d(-22, -14.50, Math.toRadians(90.00)))
-                .lineToConstantHeading(new Vector2d(-22, -5))
+                .lineToLinearHeading(new Pose2d(-24.5, -14.50, Math.toRadians(90.00)))
+                .lineToConstantHeading(new Vector2d(-24.5, -5))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1300))
-                .waitSeconds(0.001)
+                .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.OpenClaw())
 
                 //park
@@ -177,55 +178,55 @@ public class RRLEFT extends LinearOpMode
 
         TrajectorySequence parcare2 = drive.trajectorySequenceBuilder(startPose)
                 //preload
-                .addTemporalMarker(() -> robotSmash.setLiftTarget(40))
+                .addTemporalMarker(() -> robotSmash.setLiftTarget(60))
                 .lineToConstantHeading(new Vector2d(-36.39, -45.55))
                 .lineToConstantHeading(new Vector2d(-35.82, -11.5))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1520))
-                .lineToConstantHeading(new Vector2d(-25, -10.51))
-                .lineToConstantHeading(new Vector2d(-25, -6.5))
+                .lineToConstantHeading(new Vector2d(-22, -10.51))
+                .lineToConstantHeading(new Vector2d(-22, -6.5))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1300))
-                .waitSeconds(0.001)
+                .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.OpenClaw())
 
                 // first_cone
 
                 .lineToConstantHeading(new Vector2d(-24.00, -12.10))
-                .addTemporalMarker(() -> robotSmash.setLiftTarget(225))
+                .addTemporalMarker(() -> robotSmash.setLiftTarget(170))
                 .lineToLinearHeading(new Pose2d(-36.97, -12.08, Math.toRadians(180)))
                 .lineToLinearHeading(new Pose2d(-65.00, -12.00, Math.toRadians(180)))
-                .lineToConstantHeading(new Vector2d(-65, -12.10))
+                .lineToConstantHeading(new Vector2d(-67, -12.10))
                 .addTemporalMarker(() -> robotSmash.CloseClaw())
-                .waitSeconds(0.001)
+                .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(600))
 
 
                 .lineToConstantHeading(new Vector2d(-36.97, -12.08))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1450))
-                .lineToLinearHeading(new Pose2d(-25, -14.50, Math.toRadians(90.00)))
-                .lineToConstantHeading(new Vector2d(-25, -6))
+                .lineToLinearHeading(new Pose2d(-23.5, -14.50, Math.toRadians(90.00)))
+                .lineToConstantHeading(new Vector2d(-23.5, -6))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1300))
-                .waitSeconds(0.001)
+                .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.OpenClaw())
 
 
                 //second cone
 
                 .lineToConstantHeading(new Vector2d(-24.00, -12.10))
-                .addTemporalMarker(() -> robotSmash.setLiftTarget(165))
+                .addTemporalMarker(() -> robotSmash.setLiftTarget(115))
                 .lineToLinearHeading(new Pose2d(-36.97, -12.08, Math.toRadians(180)))
                 .lineToLinearHeading(new Pose2d(-65.00, -12.00, Math.toRadians(180)))
-                .lineToConstantHeading(new Vector2d(-65, -12.10))
+                .lineToConstantHeading(new Vector2d(-67, -12.10))
                 .addTemporalMarker(() -> robotSmash.CloseClaw())
-                .waitSeconds(0.001)
+                .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(600))
 
 
                 .lineToConstantHeading(new Vector2d(-36.97, -12.08))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1450))
-                .lineToLinearHeading(new Pose2d(-22, -14.50, Math.toRadians(90.00)))
-                .lineToConstantHeading(new Vector2d(-22, -5))
+                .lineToLinearHeading(new Pose2d(-24.5, -14.50, Math.toRadians(90.00)))
+                .lineToConstantHeading(new Vector2d(-24.5, -5))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1300))
-                .waitSeconds(0.001)
+                .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.OpenClaw())
 
                 //park
@@ -241,55 +242,55 @@ public class RRLEFT extends LinearOpMode
 
         TrajectorySequence parcare3 = drive.trajectorySequenceBuilder(startPose)
                 //preload
-                .addTemporalMarker(() -> robotSmash.setLiftTarget(40))
+                .addTemporalMarker(() -> robotSmash.setLiftTarget(60))
                 .lineToConstantHeading(new Vector2d(-36.39, -45.55))
                 .lineToConstantHeading(new Vector2d(-35.82, -11.5))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1520))
-                .lineToConstantHeading(new Vector2d(-25, -10.51))
-                .lineToConstantHeading(new Vector2d(-25, -6.5))
+                .lineToConstantHeading(new Vector2d(-22, -10.51))
+                .lineToConstantHeading(new Vector2d(-22, -6.5))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1300))
-                .waitSeconds(0.001)
+                .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.OpenClaw())
 
                 // first_cone
 
                 .lineToConstantHeading(new Vector2d(-24.00, -12.10))
-                .addTemporalMarker(() -> robotSmash.setLiftTarget(225))
+                .addTemporalMarker(() -> robotSmash.setLiftTarget(170))
                 .lineToLinearHeading(new Pose2d(-36.97, -12.08, Math.toRadians(180)))
                 .lineToLinearHeading(new Pose2d(-65.00, -12.00, Math.toRadians(180)))
-                .lineToConstantHeading(new Vector2d(-65, -12.10))
+                .lineToConstantHeading(new Vector2d(-67, -12.10))
                 .addTemporalMarker(() -> robotSmash.CloseClaw())
-                .waitSeconds(0.001)
+                .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(600))
 
 
                 .lineToConstantHeading(new Vector2d(-36.97, -12.08))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1450))
-                .lineToLinearHeading(new Pose2d(-25, -14.50, Math.toRadians(90.00)))
-                .lineToConstantHeading(new Vector2d(-25, -6))
+                .lineToLinearHeading(new Pose2d(-23.5, -14.50, Math.toRadians(90.00)))
+                .lineToConstantHeading(new Vector2d(-23.5, -6))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1300))
-                .waitSeconds(0.001)
+                .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.OpenClaw())
 
 
                 //second cone
 
                 .lineToConstantHeading(new Vector2d(-24.00, -12.10))
-                .addTemporalMarker(() -> robotSmash.setLiftTarget(165))
+                .addTemporalMarker(() -> robotSmash.setLiftTarget(115))
                 .lineToLinearHeading(new Pose2d(-36.97, -12.08, Math.toRadians(180)))
                 .lineToLinearHeading(new Pose2d(-65.00, -12.00, Math.toRadians(180)))
-                .lineToConstantHeading(new Vector2d(-65, -12.10))
+                .lineToConstantHeading(new Vector2d(-67, -12.10))
                 .addTemporalMarker(() -> robotSmash.CloseClaw())
-                .waitSeconds(0.001)
+                .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(600))
 
 
                 .lineToConstantHeading(new Vector2d(-36.97, -12.08))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1450))
-                .lineToLinearHeading(new Pose2d(-22, -14.50, Math.toRadians(90.00)))
-                .lineToConstantHeading(new Vector2d(-22, -5))
+                .lineToLinearHeading(new Pose2d(-24.5, -14.50, Math.toRadians(90.00)))
+                .lineToConstantHeading(new Vector2d(-24.5, -5))
                 .addTemporalMarker(() -> robotSmash.setLiftTarget(1300))
-                .waitSeconds(0.001)
+                .waitSeconds(0.01)
                 .addTemporalMarker(() -> robotSmash.OpenClaw())
 
                 //park

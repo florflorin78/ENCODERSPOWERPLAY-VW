@@ -37,7 +37,7 @@ public class RobotSmash {
 
     PIDController pidController = new PIDController(0, 0, 0);
 
-    public static double kp = 0.04;
+    public static double kp = 0.01;
     public static double ki = 0;
     public static double kd = 0.001;
     public static double ff = 0.4;
@@ -200,10 +200,6 @@ public class RobotSmash {
 
     public void setLiftTarget(int pos){
         liftTarget = pos;
-        if(liftTarget < getLiftLeftPosition())
-            pidController.setPID(kp, ki, kd);
-
-
     }
 
     public void ClawManager(Gamepad gamepad){

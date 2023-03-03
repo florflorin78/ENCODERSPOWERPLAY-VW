@@ -41,6 +41,8 @@ public class TeleOpSmash extends LinearOpMode {
                 .addStep(1, 1, 1000)  //  Rumble right motor 100% for 500 mSec
                 .build();
 
+        robot.setLiftTarget(0);
+
         runtime.reset();
         waitForStart();
         while (opModeIsActive()){
